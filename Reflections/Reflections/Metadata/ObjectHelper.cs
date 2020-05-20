@@ -10,7 +10,7 @@ namespace Reflections.Metadata
     /// 在控制台打印给定对象的元数据描述。
     /// 该方法用于调试和开发期间，对对象的运行时状态进行观察。
     /// </summary>
-    public class ObjectExtension
+    public class ObjectHelper
     {
         public static void GetPropertyInfo(object obj)
         {
