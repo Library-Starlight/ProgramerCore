@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Dump\Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Dump\Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="demo0.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

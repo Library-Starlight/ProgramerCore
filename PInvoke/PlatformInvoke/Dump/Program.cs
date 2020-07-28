@@ -3,19 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace PlatformInvoke
 {
-    public class Notifier
-    {
-        public void C1()
-        {
-            Console.WriteLine("C1");
-        }
-
-        public void C2()
-        {
-            Console.WriteLine("C2");
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -31,8 +18,22 @@ namespace PlatformInvoke
 
             // 查找回调函数数量
             var callback = new Callbacker();
-            var notifier = new Notifier();
-
+            callback.c1 = () => Console.WriteLine($"c1");
+            callback.c2 = () => Console.WriteLine($"c2");
+            callback.c3 = () => Console.WriteLine($"c3");
+            callback.c4 = () => Console.WriteLine($"c4");
+            callback.c5 = () => Console.WriteLine($"c5");
+            callback.c6 = () => Console.WriteLine($"c6");
+            callback.c7 = () => Console.WriteLine($"c7");
+            callback.c8 = () => Console.WriteLine($"c8");
+            callback.c9 = () => Console.WriteLine($"c9");
+            callback.c10 = () => Console.WriteLine($"c10");
+            //callback.c11 = () => Console.WriteLine($"c11");
+            //callback.c12 = () => Console.WriteLine($"c12");
+            //callback.c13 = () => Console.WriteLine($"c13");
+            //callback.c14 = () => Console.WriteLine($"c14");
+            //callback.c15 = () => Console.WriteLine($"c15");
+            //callback.c16 = () => Console.WriteLine($"c16");
             FindCallback(callback);
 
             Console.WriteLine($"End");
@@ -43,6 +44,21 @@ namespace PlatformInvoke
         {
             public delegate void callback();
             public callback c1;
+            public callback c2;
+            public callback c3;
+            public callback c4;
+            public callback c5;
+            public callback c6;
+            public callback c7;
+            public callback c8;
+            public callback c9;
+            public callback c10;
+            //public callback c11;
+            //public callback c12;
+            //public callback c13;
+            //public callback c14;
+            //public callback c15;
+            //public callback c16;
         }
 
         [DllImport("demo0.so", EntryPoint = "SetCallback")]
@@ -53,8 +69,8 @@ namespace PlatformInvoke
 
         public struct StatusCallback
         {
-            //public delegate void online_callback_del();
-            //public online_callback_del online_callback;
+            public delegate void online_callback_del();
+            public online_callback_del online_callback;
 
             //public delegate void ext_callback_del1(uint value, int v1, int v2, int v3, int v4);
             //public ext_callback_del1 ext_callback1;
