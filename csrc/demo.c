@@ -35,5 +35,5 @@ typedef struct StatusCallback
 
 void SetCallback(StatusCallback callback)
 {
-    callback.online_callback(500);
+    // callback.online_callback(500);
 }

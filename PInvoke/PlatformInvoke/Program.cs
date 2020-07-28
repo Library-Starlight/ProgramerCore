@@ -12,7 +12,7 @@ namespace PlatformInvoke
             Invoke(Status_enum.state3);
 
             var callback = new StatusCallback();
-            callback.online_callback = (v, v1) => Console.WriteLine(v.ToString());
+            callback.online_callback = () => Console.WriteLine("Callback");
             SetCallback(callback);
         }
 
@@ -21,8 +21,14 @@ namespace PlatformInvoke
 
         public struct StatusCallback
         {
-            public delegate void online_callback_del(uint value, int value1);
+            public delegate void online_callback_del();
             public online_callback_del online_callback;
+
+            public delegate void extra_callback_del1(int v, int y);
+            public extra_callback_del1 extra_callback1;
+
+            public delegate void extra_callback_del2();
+            public extra_callback_del2 extra_callback2;
         }
 
         [DllImport("demo0.so")]
