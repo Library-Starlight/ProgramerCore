@@ -11,9 +11,8 @@ namespace PlatformInvoke
 
             Invoke(Status_enum.state3);
 
-            // Stack overflow.
-            // Aborted(core dumped)
             var callback = new StatusCallback();
+            callback.online_callback = v => Console.WriteLine(v.ToString());
             SetCallback(callback);
         }
 
@@ -22,10 +21,8 @@ namespace PlatformInvoke
 
         public struct StatusCallback
         {
-            void online_callback(uint value)
-            {
-                Console.WriteLine(value);
-            }
+            public delegate void online_callback_del(int value);
+            public online_callback_del online_callback;
         }
 
         [DllImport("demo0.so")]
