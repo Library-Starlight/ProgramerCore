@@ -1,3 +1,5 @@
+
+
 # 将c程序编译为可执行文件
 gcc -o demo0 demo.c -I/home/libao/Desktop/Cpp/1
 

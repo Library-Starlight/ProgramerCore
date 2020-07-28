@@ -198,7 +198,6 @@ static HeyThings_handler_callback ht_cb = {
 	.heythings_msg_callback = heythings_msg_cb,
 	.dev_status_callback = dev_status_cb,
 	.pin_code_callback = pin_code_cb,
-	.dev_time_callback = dev_time_cb,
 	.dev_info_callback = dev_info_cb,
 	.client_disconnect_callback = client_disconnect_cb,
 	.subscibe_callback = subscribe_cb,
@@ -255,7 +254,7 @@ int main(int argc, char *argv[])
 		struct timeval timeout = {1, 500};
 		ret = select(max_fd, &rfds, NULL, NULL, &timeout);
 		if (ret == 0)
-		{	//time out
+		{ //time out
 			//	ht_log_debug("time out...");
 			if (sdk_fd < 0)
 			{ //reconnect to sdk
