@@ -1,0 +1,5 @@
+# 将c程序编译为可执行文件
+gcc -o demo0 demo.c -I/home/libao/Desktop/Cpp/1
+
+# 将c程序编译为动态链接库
+gcc -fPIC -shared -o demo0.so demo.c -I/home/libao/Desktop/Cpp/1

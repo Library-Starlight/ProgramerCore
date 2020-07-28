@@ -15,7 +15,7 @@
 #include <stdint.h>
 
 #define HEYTHINGS_VERSION_MAJOR 1
-#define HEYTHINGS_VSERION_MINOR 6 
+#define HEYTHINGS_VSERION_MINOR 6
 #define HEYTHINGS_VERSION_PATCH 1
 
 #include "HeyThings_devinfo.h"
@@ -23,30 +23,31 @@
 /**
  * local_type_t - Local communication message type
  */
-typedef enum {
-	LOCAL_TYPE_HEYTHINGS_FORWARD, /**< Forward the message, SDK will not process the message */
-	LOCAL_TYPE_HEYTHINGS_PROCESS, /**< SDK process the message or forward the msg by transaction id */
-	LOCAL_TYPE_DEV_STATUS,		  /**< SDK send the program device status */
-	LOCAL_TYPE_DEV_STATUS_REQ,	  /**< Program request the device status */
-	LOCAL_TYPE_DEV_INFO,		  /**< Program and SDK synchronization device information */
-	LOCAL_TYPE_DEV_INFO_REQ,	  /**< Program request the device information*/
-	LOCAL_TYPE_CLIENT_DISCONNECT, /**< APP client disconnect */
-	LOCAL_TYPE_DEV_TIME,		  /**< SDK synchronization the cloud time and send to prgram*/
-	LOCAL_TYPE_GET_PROPERTIES_REQ, /**< Program request to get service properties */
-	LOCAL_TYPE_GET_PROPERTIES_RESP,/**< SDK response the service proerties */
-	LOCAL_TYPE_SET_PROPERTIES_REQ, /**< Program change and set the service properties */
-	LOCAL_TYPE_SET_PROPERTIES_RESP, /**< SDK response the set result */
-	LOCAL_TYPE_OBSERVE_PROPERTIES_REQ, /**< Program observe service properties */
-	LOCAL_TYPE_OBSERVE_PROPERTIES_RESP, /**< SDK response the observe result */
-	LOCAL_TYPE_PROPERTIES_CHANGE, /**< When service properties change, SDK notification program */
-	LOCAL_TYPE_SUBSCIBE_MSG_BY_ADDRESS, /**< Program subscibe the heythings message by dst_addr */
-	LOCAL_TYPE_SUBSCIBE_MSG_BY_TYPE, /**< Program subscibe the heythings message by message type, except the properties message */
-	LOCAL_TYPE_SUBSCIBE_MSG_BY_SIID, /**< program subscibe the properties message by serivce id */
-	LOCAL_TYPE_SUBSCIBE_RESP, /**< subscibe response */
+typedef enum
+{
+	LOCAL_TYPE_HEYTHINGS_FORWARD,		  /**< Forward the message, SDK will not process the message */
+	LOCAL_TYPE_HEYTHINGS_PROCESS,		  /**< SDK process the message or forward the msg by transaction id */
+	LOCAL_TYPE_DEV_STATUS,				  /**< SDK send the program device status */
+	LOCAL_TYPE_DEV_STATUS_REQ,			  /**< Program request the device status */
+	LOCAL_TYPE_DEV_INFO,				  /**< Program and SDK synchronization device information */
+	LOCAL_TYPE_DEV_INFO_REQ,			  /**< Program request the device information*/
+	LOCAL_TYPE_CLIENT_DISCONNECT,		  /**< APP client disconnect */
+	LOCAL_TYPE_DEV_TIME,				  /**< SDK synchronization the cloud time and send to prgram*/
+	LOCAL_TYPE_GET_PROPERTIES_REQ,		  /**< Program request to get service properties */
+	LOCAL_TYPE_GET_PROPERTIES_RESP,		  /**< SDK response the service proerties */
+	LOCAL_TYPE_SET_PROPERTIES_REQ,		  /**< Program change and set the service properties */
+	LOCAL_TYPE_SET_PROPERTIES_RESP,		  /**< SDK response the set result */
+	LOCAL_TYPE_OBSERVE_PROPERTIES_REQ,	  /**< Program observe service properties */
+	LOCAL_TYPE_OBSERVE_PROPERTIES_RESP,	  /**< SDK response the observe result */
+	LOCAL_TYPE_PROPERTIES_CHANGE,		  /**< When service properties change, SDK notification program */
+	LOCAL_TYPE_SUBSCIBE_MSG_BY_ADDRESS,	  /**< Program subscibe the heythings message by dst_addr */
+	LOCAL_TYPE_SUBSCIBE_MSG_BY_TYPE,	  /**< Program subscibe the heythings message by message type, except the properties message */
+	LOCAL_TYPE_SUBSCIBE_MSG_BY_SIID,	  /**< program subscibe the properties message by serivce id */
+	LOCAL_TYPE_SUBSCIBE_RESP,			  /**< subscibe response */
 	LOCAL_TYPE_UNSUBSCIBE_MSG_BY_ADDRESS, /**< unsubscibe the message by dst_addr */
-	LOCAL_TYPE_UNSUBSCIBE_MSG_BY_TYPE, /**< unsubscibe the message by type */
-	LOCAL_TYPE_UNSUBSCIBE_MSG_BY_SIID,/**< unsubscibe the message by service id */
-	LOCAL_TYPE_UNSUBSCIBE_RESP, /**< unsubscibe response */
+	LOCAL_TYPE_UNSUBSCIBE_MSG_BY_TYPE,	  /**< unsubscibe the message by type */
+	LOCAL_TYPE_UNSUBSCIBE_MSG_BY_SIID,	  /**< unsubscibe the message by service id */
+	LOCAL_TYPE_UNSUBSCIBE_RESP,			  /**< unsubscibe response */
 	LOCAL_TYPE_GENERATE_DEV_KEY_REQ,
 	LOCAL_TYPE_GENERATE_DEV_KEY_RESP,
 	LOCAL_TYPE_NETWORK_READY,
@@ -64,21 +65,21 @@ typedef enum {
 	LOCAL_TYPE_PIN_CODE,
 } local_type_t;
 
-
 /**
  * dev_status_t - Device current status
  */
-typedef enum dev_status {
-	DEV_STATUS_MIN,	
-	DEV_STATUS_UNKNOW,     /**< The SDK has some error */
-	DEV_STATUS_BIND_FAILED, /**< The SDK with cloud bind failed */
-	DEV_STATUS_INIT,	/**< The SDK will start now */	
-	DEV_STATUS_WAIT_DEVINFO, /**< The SDK wait other program send the devinfo */
-	DEV_STATUS_WAIT_BINDINFO,/**< The SDK wait APP send the setup information */
-	DEV_STATUS_BINDING, /**< The SDK is binding now */
-	DEV_STATUS_CLOUD_CONNECTING, /**< The SDK connect the cloud now */
-	DEV_STATUS_NORMAL, /**< The SDK is normal, then can receive the cloud and app message */
-	DEV_STATUS_RESET, /**< The SDK is reset */
+typedef enum dev_status
+{
+	DEV_STATUS_MIN,
+	DEV_STATUS_UNKNOW,			   /**< The SDK has some error */
+	DEV_STATUS_BIND_FAILED,		   /**< The SDK with cloud bind failed */
+	DEV_STATUS_INIT,			   /**< The SDK will start now */
+	DEV_STATUS_WAIT_DEVINFO,	   /**< The SDK wait other program send the devinfo */
+	DEV_STATUS_WAIT_BINDINFO,	   /**< The SDK wait APP send the setup information */
+	DEV_STATUS_BINDING,			   /**< The SDK is binding now */
+	DEV_STATUS_CLOUD_CONNECTING,   /**< The SDK connect the cloud now */
+	DEV_STATUS_NORMAL,			   /**< The SDK is normal, then can receive the cloud and app message */
+	DEV_STATUS_RESET,			   /**< The SDK is reset */
 	DEV_STATUS_WAIT_NETWORK_READY, /**< The SDK wait the network ready */
 	DEV_STATUS_MAX
 } dev_status_t;
@@ -91,15 +92,17 @@ typedef struct HeyThings_handler HeyThings_handler_t;
 /**
  * property_t - The service property 
  */
-typedef struct {
-	uint32_t siid;	/**< service id */
-	uint32_t iid;	/**< property id */
-	uint32_t id;	/**< The array property id */
-	int length;     /**< property value length */
-	void *data;		/**< property value data */
-}property_t;
+typedef struct
+{
+	uint32_t siid; /**< service id */
+	uint32_t iid;  /**< property id */
+	uint32_t id;   /**< The array property id */
+	int length;	   /**< property value length */
+	void *data;	   /**< property value data */
+} property_t;
 
-typedef struct {
+typedef struct
+{
 	uint32_t siid;
 	uint32_t iid;
 	uint32_t seq;
@@ -109,14 +112,15 @@ typedef struct {
 	uint32_t importance;
 	uint32_t length;
 	uint8_t *data;
-}event_t;
+} event_t;
 
 typedef struct action action_t;
 
 /**
  * HeyThings_handler_callback - The libheythings callback functions.
  */
-typedef struct HeyThings_handler_callback {
+typedef struct HeyThings_handler_callback
+{
 	/**
 	 * get_properties_callback() - The get properties response
 	 * 
@@ -125,9 +129,9 @@ typedef struct HeyThings_handler_callback {
 	 * @param[in] properties	Response properties ::property_t
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
 	 **/
-	void (*get_properties_callback)(uint32_t msgid, uint32_t count, 
-			property_t properties[], void *user_data);
-	
+	void (*get_properties_callback)(uint32_t msgid, uint32_t count,
+									property_t properties[], void *user_data);
+
 	/**
 	 * set_properties_callback() - The set properties response
 	 * 
@@ -145,8 +149,8 @@ typedef struct HeyThings_handler_callback {
 	 * @param[in] properties	Response observe properties ::property_t
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
 	 **/
-	void (*observe_properties_callback)(uint32_t msgid, uint32_t count, 
-			property_t properties[], void *user_data);
+	void (*observe_properties_callback)(uint32_t msgid, uint32_t count,
+										property_t properties[], void *user_data);
 
 	/**
 	 * properties_change_callback() - The SDK notification the change properties
@@ -156,8 +160,8 @@ typedef struct HeyThings_handler_callback {
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
 	 */
 	void (*properties_change_callback)(uint32_t count, property_t properties[],
-			void *user_data);
-	
+									   void *user_data);
+
 	/**
 	 * heythings_msg_callback() - The SDK forward heythings message
 	 * 
@@ -166,7 +170,7 @@ typedef struct HeyThings_handler_callback {
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
 	 */
 	void (*heythings_msg_callback)(uint8_t *msg, int len, void *user_data);
-	
+
 	/**
 	 * dev_status_callback() - The SDK status
 	 * 
@@ -176,21 +180,12 @@ typedef struct HeyThings_handler_callback {
 	void (*dev_status_callback)(dev_status_t status, void *user_data);
 
 	/**
-	 * dev_time_callback() - The SDK synchronization the time from cloud
-	 * 
-	 * @param[in] ts			The synchronization time
-	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
-	 */
-	void (*dev_time_callback)(struct timeval *ts, void *user_data);
-
-	/**
 	 * dev_info_callback() - The SDK and program synchronization the device information
 	 * 
 	 * @param[in] info 		The synchronization device information ::devinfo_t
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
 	 */
 	void (*dev_info_callback)(devinfo_t *info, void *user_data);
-
 
 	void (*pin_code_callback)(char *pin_code, int len, void *user_data);
 
@@ -202,22 +197,22 @@ typedef struct HeyThings_handler_callback {
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
 	 */
 	void (*client_disconnect_callback)(uint32_t client, int reason, void *user_data);
-	
+
 	void (*client_connected_callback)(uint32_t addr, void *user_data);
 	/**
 	 * subscibe_callback() - subscibe response
 	 * 
 	 * @param[in] result	subscibe result 
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
-	 **/	
+	 **/
 	void (*subscibe_callback)(int result, void *user_data);
-	
+
 	/**
 	 * unsubscibe_callback() - unsubscibe response
 	 * 
 	 * @param[in] result	unsubscibe result 
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
-	 **/	
+	 **/
 	void (*unsubscibe_callback)(int result, void *user_data);
 
 	/**
@@ -231,7 +226,7 @@ typedef struct HeyThings_handler_callback {
 	 * @param[in] user_data 	The user custon data by ::HeyThings_handler_init
 	 */
 	void (*generate_dev_key_callback)(char *pri_key_pem, uint32_t pri_key_len,
-			void *user_data);
+									  void *user_data);
 	/**
 	 * @brief - 
 	 *
@@ -243,18 +238,18 @@ typedef struct HeyThings_handler_callback {
 	 * @brief - 
 	 *
 	 **/
-	void (*action_call_callback)(action_t *action, 
-			uint32_t siid, uint32_t iid, uint32_t len, uint8_t *data, void *user_data);
+	void (*action_call_callback)(action_t *action,
+								 uint32_t siid, uint32_t iid, uint32_t len, uint8_t *data, void *user_data);
 
-	void (*action_return_callback)(action_t *action, 
-			uint32_t len, uint8_t *data, void *user_data);
+	void (*action_return_callback)(action_t *action,
+								   uint32_t len, uint8_t *data, void *user_data);
 
-	void (*action_stream_start_callback)(action_t *action, 
-			 uint32_t siid, uint32_t iid, uint32_t len,
-			 uint8_t *data, void *user_data);
+	void (*action_stream_start_callback)(action_t *action,
+										 uint32_t siid, uint32_t iid, uint32_t len,
+										 uint8_t *data, void *user_data);
 
-	void (*action_stream_msg_callback)(action_t *action, 
-			uint32_t seq, uint32_t len, uint8_t *data, void *user_data);
+	void (*action_stream_msg_callback)(action_t *action,
+									   uint32_t seq, uint32_t len, uint8_t *data, void *user_data);
 
 	void (*action_stream_end_callback)(action_t *action);
 
@@ -266,18 +261,15 @@ typedef struct HeyThings_handler_callback {
 	void (*action_end_callback)(uint32_t action_id, void *user_data);
 	*/
 
+	// void (*properties_write_callback)(uint32_t msgid, int result, void *user_data);
+	// void (*properties_read_callback)(uint32_t msgid, uint8_t *data, size_t data_len,
+	// 		void *user_data);
+	// void (*properties_observe_callback)(uint32_t msgid, uint8_t *data, size_t data_len,
+	// 		 void *user_data);
+	// void (*properties_notifcation_callback)(uint32_t msgid, int n_properties,
+	// 		property_t *proerties, void *user_data);
 
-	void (*properties_write_callback)(uint32_t msgid, int result, void *user_data);
-	void (*properties_read_callback)(uint32_t msgid, uint8_t *data, size_t data_len, 
-			void *user_data);
-	void (*properties_observe_callback)(uint32_t msgid, uint8_t *data, size_t data_len,
-			 void *user_data);
-	void (*properties_notifcation_callback)(uint32_t msgid, int n_properties,
-			property_t *proerties, void *user_data);
-
-}HeyThings_handler_callback;
-
-
+} HeyThings_handler_callback;
 
 /**
  * HeyThings_handler_fd() - Get the libheythings handler file descriptor
@@ -305,8 +297,8 @@ int HeyThings_handler_reconnect(HeyThings_handler_t *handler);
  * @retval NULL: 			init failed
  * @retval !NULL:			init success
  */
-HeyThings_handler_t *HeyThings_handler_init(void *user_data, 
-		HeyThings_handler_callback *callback);
+HeyThings_handler_t *HeyThings_handler_init(void *user_data,
+											HeyThings_handler_callback *callback);
 
 /**
  * HeyThings_handler_finish() - Finish the libheythings handler
@@ -326,8 +318,8 @@ void HeyThings_handler_finish(HeyThings_handler_t *handler);
  * @retval <0:				Some error, see errno
  *
  */
-int HeyThings_handler_write(HeyThings_handler_t *handler, 
-		uint8_t *msg, uint32_t len);
+int HeyThings_handler_write(HeyThings_handler_t *handler,
+							uint8_t *msg, uint32_t len);
 
 /**
  * HeyThings_get_properties() - get service proerties request
@@ -338,7 +330,7 @@ int HeyThings_handler_write(HeyThings_handler_t *handler,
  * @retval see as ::HeyThings_handler_write
  */
 int HeyThings_get_properties(HeyThings_handler_t *handler, uint32_t *msgid,
-						property_t properties[], uint32_t num);
+							 property_t properties[], uint32_t num);
 
 /**
  * HeyThings_set_properties() - set service proerties request
@@ -348,8 +340,8 @@ int HeyThings_get_properties(HeyThings_handler_t *handler, uint32_t *msgid,
  * @param[in] num			The set properties count
  * @retval see as ::HeyThings_handler_write
  */
-int HeyThings_set_properties(HeyThings_handler_t *handler,  uint32_t *msgid,
-		property_t properties[], uint32_t num);
+int HeyThings_set_properties(HeyThings_handler_t *handler, uint32_t *msgid,
+							 property_t properties[], uint32_t num);
 
 /**
  * HeyThings_observe_properties() - set service proerties request
@@ -359,8 +351,8 @@ int HeyThings_set_properties(HeyThings_handler_t *handler,  uint32_t *msgid,
  * @param[in] num			The observe properties count
  * @retval see as ::HeyThings_handler_write
  */
-int HeyThings_observe_properties(HeyThings_handler_t *handler, uint32_t *msgid, 
-							property_t properties[], uint32_t num); 
+int HeyThings_observe_properties(HeyThings_handler_t *handler, uint32_t *msgid,
+								 property_t properties[], uint32_t num);
 
 /**
  * HeyThings_get_dev_status() - get device status request
@@ -465,7 +457,6 @@ int HeyThings_msg_send(HeyThings_handler_t *handler, uint8_t *msg, int len);
  */
 int HeyThings_handler_process(HeyThings_handler_t *handler);
 
-
 /**
  * @brief Generate the device keypair.
  *
@@ -520,7 +511,6 @@ int HeyThings_network_ready(HeyThings_handler_t *handler, int ready);
  **/
 int HeyThings_bind_reset(HeyThings_handler_t *handler);
 
-
 /**
  * @brief Tell the SDK the program trigger single event.
  *
@@ -533,45 +523,44 @@ int HeyThings_bind_reset(HeyThings_handler_t *handler);
  **/
 int HeyThings_trigger_event(HeyThings_handler_t *handler, event_t *event, uint32_t *event_t);
 
-
-int HeyThings_action_return(HeyThings_handler_t *handler, 
-		action_t *action, uint32_t len, uint8_t *data);
+int HeyThings_action_return(HeyThings_handler_t *handler,
+							action_t *action, uint32_t len, uint8_t *data);
 
 int HeyThings_action_stream_msg(HeyThings_handler_t *handler,
-		action_t *action, uint32_t seq, uint32_t len, uint8_t *data);
+								action_t *action, uint32_t seq, uint32_t len, uint8_t *data);
 
 int HeyThings_action_stream_end(HeyThings_handler_t *handler, action_t *action);
 
 //active
-int HeyThings_action_call(HeyThings_handler_t *handler, 
-		uint32_t *action_id, uint32_t siid, uint32_t iid, 
-		uint32_t len, uint8_t *data);
+int HeyThings_action_call(HeyThings_handler_t *handler,
+						  uint32_t *action_id, uint32_t siid, uint32_t iid,
+						  uint32_t len, uint8_t *data);
 
 int HeyThings_setup(HeyThings_handler_t *handler,
-		uint8_t *bindkey, int bindkey_len,
-		uint8_t *ssid, int ssid_len,
-		uint8_t *psk, int psk_len,
-		uint64_t timestamp,
-		char *domain,
-		uint8_t *cloud_url, int cloudurl_len,
-		int n_access_url, 
-		uint8_t **acess_url, int *accessurl_len);
+					uint8_t *bindkey, int bindkey_len,
+					uint8_t *ssid, int ssid_len,
+					uint8_t *psk, int psk_len,
+					uint64_t timestamp,
+					char *domain,
+					uint8_t *cloud_url, int cloudurl_len,
+					int n_access_url,
+					uint8_t **acess_url, int *accessurl_len);
 
 int HeyThings_connect_device(HeyThings_handler_t *handler,
-		uint32_t address, char *ip, int port);
+							 uint32_t address, char *ip, int port);
 
 int HeyThings_properties_write(HeyThings_handler_t *handler,
-		uint32_t *msgid, uint32_t address,
-		uint32_t siid, int n_iid, uint32_t *iid,
-		 uint8_t *data, int data_len);
+							   uint32_t *msgid, uint32_t address,
+							   uint32_t siid, int n_iid, uint32_t *iid,
+							   uint8_t *data, int data_len);
 
 int HeyThings_properties_read(HeyThings_handler_t *handler,
-		uint32_t *msgid, uint32_t address,
-		uint32_t siid, int n_iid, uint32_t *iid);
+							  uint32_t *msgid, uint32_t address,
+							  uint32_t siid, int n_iid, uint32_t *iid);
 
 int HeyThings_properties_observe(HeyThings_handler_t *handler,
-		uint32_t *msgid, uint32_t address,
-		uint32_t siid, int n_iid, uint32_t *iid);
+								 uint32_t *msgid, uint32_t address,
+								 uint32_t siid, int n_iid, uint32_t *iid);
 
 /*
 int HeyThings_action_start(HeyThings_handler_t *handler, 
