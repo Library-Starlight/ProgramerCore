@@ -42,11 +42,20 @@ typedef struct StatusCallback
     // void (*ext_callback9)(uint32_t value);
 } StatusCallback;
 
-void SetCallback(StatusCallback callback)
+void SetCallback(StatusCallback *callback)
 {
-    //  callback.online_callback(500);
+    (*callback).online_callback(500);
     //  callback.ext_callback8(500, 'c');
     // callback.ext_callback1(100);
     // callback.ext_callback2(200);
     // callback.ext_callback3(300);
 }
+
+// void SetCallback(StatusCallback callback)
+// {
+//     (callback).online_callback(500);
+//     //  callback.ext_callback8(500, 'c');
+//     // callback.ext_callback1(100);
+//     // callback.ext_callback2(200);
+//     // callback.ext_callback3(300);
+// }

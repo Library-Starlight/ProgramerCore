@@ -31,9 +31,34 @@ namespace PlatformInvoke
 
             // 查找回调函数数量
             var callback = new Callbacker();
-            var notifier = new Notifier();
+            callback.c1 = () => Console.WriteLine($"{DateTime.Now}: Call successded");
+            callback.c2 = () => Console.WriteLine($"{DateTime.Now}: Call successded");
+            callback.c3 = () => Console.WriteLine($"{DateTime.Now}: Call successded");
+            callback.c4 = () => Console.WriteLine($"{DateTime.Now}: Call successded");
 
-            FindCallback(callback);
+            var size = Marshal.SizeOf<Callbacker>();
+            var ptr = Marshal.AllocHGlobal(size);
+            Marshal.StructureToPtr(callback, ptr, true);
+
+            while (true)
+            {
+                Console.WriteLine("通过指针or结构体调用？1:指针, 2:结构体");
+                var s = Console.ReadLine();
+                var i = int.Parse(s);
+
+                if (i == 1)
+                {
+                    // 传递指针
+                    Console.WriteLine("传递指针");
+                    FindCallback(ptr);
+                }
+                else if (i == 2)
+                {
+                    // 传递结构体
+                    Console.WriteLine("传递结构体");
+                    FindCallback(callback);
+                }
+            }
 
             Console.WriteLine($"End");
             Console.ReadLine();
@@ -43,13 +68,21 @@ namespace PlatformInvoke
         {
             public delegate void callback();
             public callback c1;
+            public callback c2;
+            public callback c3;
+            public callback c4;
         }
+
+        [DllImport("demo0.so", EntryPoint = "SetCallback")]
+        public extern static void FindCallback(IntPtr callback);
 
         [DllImport("demo0.so", EntryPoint = "SetCallback")]
         public extern static void FindCallback(Callbacker callback);
 
+
+
         [DllImport("demo0.so")]
-        public extern static void SetCallback(StatusCallback callback);
+        public extern static void SetCallback([MarshalAs(UnmanagedType.FunctionPtr)]StatusCallback callback);
 
         public struct StatusCallback
         {
