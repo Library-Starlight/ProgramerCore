@@ -22,6 +22,8 @@ namespace PlatformInvoke.Structure
         public void Run()
         {
             var data = Pack();
+
+            return;
             Unpack(data.ptr, data.len);
         }
 
@@ -59,19 +61,17 @@ namespace PlatformInvoke.Structure
             // 设置devinfo_t结构
             for (int i = 0; i < props.Length; i++)
             {
-                var s = (string)props[i].GetValue(device);
+                var s = (string)props[i].GetValue(device) ?? string.Empty;
                 string_assign(out var st, s, s.Length);
 
                 devInfo.filed[i] = st;
             }
 
-            //for (int i = 0; i < devInfo.filed.Length; i++)
-            //{
-            //    var field = devInfo.filed[i];
-            //    var s = Marshal.PtrToStringUTF8(field.s, field.len);
-
-            //    Console.WriteLine($"Len: {field.len.ToString()}, Value: {s}");
-            //}
+            for (int i = 0; i < devInfo.filed.Length; i++)
+            {
+                var field = devInfo.filed[i];
+                var s = Marshal.PtrToStringUTF8(field.s, field.len);
+            }
 
             // 打包为二进制数据
             var ptr = devInfo.ToStructurePointer();
