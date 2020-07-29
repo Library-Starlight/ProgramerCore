@@ -65,10 +65,10 @@ typedef struct {
  * devino_t - The device information
  */
 typedef struct devinfo {
-	string_t filed[DEVINFO_TYPE_MAX];
+	string_t field[DEVINFO_TYPE_MAX];
 }devinfo_t;
 
-#define __CHECK_FILED(i, x) (i->filed[x].s && i->filed[x].len > 0)
+#define __CHECK_FILED(i, x) (i->field[x].s && i->field[x].len > 0)
 
 /**
  * string_cpy() - string copy, copies the src string to dst

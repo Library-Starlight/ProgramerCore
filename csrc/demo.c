@@ -59,3 +59,32 @@ void SetCallback(StatusCallback *callback)
 //     // callback.ext_callback2(200);
 //     // callback.ext_callback3(300);
 // }
+
+// 一个复杂的结构体参数
+
+typedef struct child
+{
+    int32_t len;
+    uint8_t *ptr;
+} child_string;
+
+typedef struct unique
+{
+    /* data */
+    child_string array[2];
+} unique_string;
+
+void SendString(unique_string str, int len)
+{
+    printf("Hello World!\n");
+    printf("Length1: %d\n", str.array->len);
+    printf("Length2: %d\n", str.array[1].len);
+}
+
+void SendStringPointer(unique_string *str, int len)
+{
+    printf("Hello World!\n");
+
+    printf("Length1: %d\n", str->array->len);
+    printf("Length2: %d\n", str->array[1].len);
+}

@@ -1,5 +1,8 @@
 ﻿Segmentation fault (core dumped)
-根本原因：c语言程序通过指针引用了托管代码中受保护的内存
+根本原因：c语言程序通过指针引用了托管代码中受保护的内存。
+	例如：
+		①传入回调函数时，将结构体当指针传递。  × Fun(Callbacker call)  ✔ Func(IntPtr call)
+		②定义回调委托时，将指针当结构体传递。  × Callback(property[] properties)	✔ Callback(IntPtr call)
 
 产生原因：
 ①C#端定义了多余的回调函数。
