@@ -14,8 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="demo0.so">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="data\devinfo2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

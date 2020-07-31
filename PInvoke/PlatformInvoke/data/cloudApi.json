@@ -1,0 +1,12 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "bindKey": "ee961791caf3458b9ced86d04efd9c1e",
+    "timeZone": "Asia/Shanghai",
+    "accessServerUrl": "testahome.iot.wanyol.com",
+    "accessServerIps": [
+      "113.105.184.114:8018"
+    ]
+  }
+}

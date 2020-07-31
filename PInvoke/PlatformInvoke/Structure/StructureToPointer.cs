@@ -67,11 +67,11 @@ namespace PlatformInvoke.Structure
                 devInfo.filed[i] = st;
             }
 
-            for (int i = 0; i < devInfo.filed.Length; i++)
-            {
-                var field = devInfo.filed[i];
-                var s = Marshal.PtrToStringUTF8(field.s, field.len);
-            }
+            //for (int i = 0; i < devInfo.filed.Length; i++)
+            //{
+            //    var field = devInfo.filed[i];
+            //    var s = Marshal.PtrToStringUTF8(field.s, field.len);
+            //}
 
             // 打包为二进制数据
             var ptr = devInfo.ToStructurePointer();
