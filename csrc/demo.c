@@ -8,6 +8,9 @@ int main(void)
            HEYTHINGS_VERSION_MAJOR, HEYTHINGS_VSERION_MINOR,
            HEYTHINGS_VERSION_PATCH);
 
+    uint64_t v = *(uint64_t *)"value";
+    printf(v);
+
     return 0;
 }
 
