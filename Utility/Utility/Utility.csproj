@@ -6,7 +6,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Serializers\" />
-	  <Folder Include="Http\" />
 	  <Folder Include="Reflection\" />
 	</ItemGroup>
 
