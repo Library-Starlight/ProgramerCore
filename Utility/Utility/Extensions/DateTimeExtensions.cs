@@ -39,5 +39,13 @@ namespace System
         {
             return _zero.AddMilliseconds(value);
         }
+
+        /// <summary>
+        /// 将Utc整数值转换为北京时间
+        /// </summary>
+        /// <param name="value">需要转换为时间的Utc整数值</param>
+        /// <returns></returns>
+        public static DateTime UtcMillisecondsToBeiJingTime(this long value)
+            => UtcMillisecondsToTime(value).AddHours(8D);
     }
 }

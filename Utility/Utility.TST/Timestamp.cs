@@ -14,6 +14,13 @@ namespace Utility.TST
             var ts = DateTimeExtensions.UtcMillisecondsToTime(LongTimestamp);
             Assert.Equal(Time, ts);
         }
+        
+        [Fact]
+        public void GetBeijingTime()
+        {
+            var ts = DateTimeExtensions.UtcMillisecondsToBeiJingTime(LongTimestamp);
+            Assert.Equal(Time.AddHours(8D), ts);
+        }
 
         [Fact]
         public void GetInteger()
@@ -21,5 +28,6 @@ namespace Utility.TST
             var timestamp = DateTimeExtensions.ToInt64(Time);
             Assert.Equal(LongTimestamp, timestamp);
         }
+
     }
 }
