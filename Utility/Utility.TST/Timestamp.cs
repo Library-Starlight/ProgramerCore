@@ -25,7 +25,7 @@ namespace Utility.TST
         [Fact]
         public void GetInteger()
         {
-            var timestamp = DateTimeExtensions.ToInt64(Time);
+            var timestamp = DateTimeExtensions.ToMillisecondInt64(Time);
             Assert.Equal(LongTimestamp, timestamp);
         }
 

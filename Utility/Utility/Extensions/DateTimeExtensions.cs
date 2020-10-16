@@ -16,16 +16,41 @@ namespace System
         private readonly static DateTime _zero = new DateTime(1970, 1, 1);
 
         /// <summary>
-        /// 获取长整型时间
+        /// 获取长整型秒数
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static long ToInt64(this DateTime time)
+        public static long ToSecondInt64(this DateTime time)
+        {
+            return (long)(time - _zero).TotalSeconds;
+        }
+
+        /// <summary>
+        /// 获取长整形秒数
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static ulong ToSecondUint64(this DateTime time)
+        {
+            return (ulong)(time - _zero).TotalSeconds;
+        }
+
+        /// <summary>
+        /// 获取长整型毫秒数
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static long ToMillisecondInt64(this DateTime time)
         {
             return (long)(time - _zero).TotalMilliseconds;
         }
 
-        public static ulong ToUint64(this DateTime time)
+        /// <summary>
+        /// 获取无符号长整形毫秒数
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static ulong ToMillisecondUint64(this DateTime time)
         {
             return (ulong)(time - _zero).TotalMilliseconds;
         }
