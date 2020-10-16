@@ -15,6 +15,8 @@ namespace System
         /// </summary>
         private readonly static DateTime _zero = new DateTime(1970, 1, 1);
 
+        #region 北京时间
+
         /// <summary>
         /// 获取长整型秒数
         /// </summary>
@@ -55,6 +57,26 @@ namespace System
             return (ulong)(time - _zero).TotalMilliseconds;
         }
 
+        #endregion
+
+        #region Utc时间
+
+        /// <summary>
+        /// 获取Utc长整型秒数
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static long ToUtcSecondInt64(this DateTime time)
+            => time.AddHours(-8).ToSecondInt64();
+
+        /// <summary>
+        /// 获取Utc无符号长整型秒数
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static ulong ToUtcSecondUint64(this DateTime time)
+            => time.AddHours(-8).ToSecondUint64();
+
         /// <summary>
         /// 将Utc整数值转换为时间
         /// </summary>
@@ -72,5 +94,7 @@ namespace System
         /// <returns></returns>
         public static DateTime UtcMillisecondsToBeiJingTime(this long value)
             => UtcMillisecondsToTime(value).AddHours(8D);
+
+        #endregion
     }
 }
