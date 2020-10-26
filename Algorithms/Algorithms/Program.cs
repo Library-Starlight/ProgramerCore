@@ -1,4 +1,5 @@
 ﻿using Algorithms.Practice;
+using Algorithms.Search;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,9 @@ namespace Algorithms
     {
         public static void Main(string[] args)
         {
-            new Chapter1().P1_1_8();
+            BinarySearch.RecursionRank(5, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 });
+            BinarySearch.RecursionRank(5, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 });
+
         }
     }
 }
