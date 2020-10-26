@@ -21,5 +21,21 @@ namespace Algorithms
             uint r = p % q;
             return Gcd(q, r);
         }
+
+        /// <summary>
+        /// 求根(牛顿迭代法)(误差1e-15)
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        public static double Sqrt(double v)
+        {
+            const double err = 1e-15;
+
+            if (v < 0) return double.NaN;
+            var t = v;
+            while (Math.Abs(t - v / t) > err * t)
+                t = (v / t + t) / 2.0D;
+            return t;
+        }
     }
 }
