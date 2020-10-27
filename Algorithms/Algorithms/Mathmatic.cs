@@ -16,7 +16,7 @@ namespace Algorithms
         /// <param name="i"></param>
         /// <param name="j"></param>
         /// <returns></returns>
-        public static bool Less<T>(IComparable<T> i, T j)
+        public static bool Less(IComparable i, IComparable j)
             => i.CompareTo(j) < 0;
 
         /// <summary>
