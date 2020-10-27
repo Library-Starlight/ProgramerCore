@@ -10,6 +10,29 @@ namespace Algorithms
     public class Mathmatic
     {
         /// <summary>
+        /// 比较大小
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        public static bool Less<T>(IComparable<T> i, T j)
+            => i.CompareTo(j) < 0;
+
+        /// <summary>
+        /// 交换位置
+        /// </summary>
+        /// <param name="a">数组</param>
+        /// <param name="j">待交换的索引1</param>
+        /// <param name="v">待交换的索引2</param>
+        public static void Exch<T>(T[] a, int j, int v)
+        {
+            var cache = a[j];
+            a[j] = a[v];
+            a[v] = cache;
+        }
+
+        /// <summary>
         /// 最大公约数
         /// </summary>
         /// <param name="p">非负整数1</param>

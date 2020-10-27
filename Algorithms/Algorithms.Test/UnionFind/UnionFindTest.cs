@@ -7,14 +7,26 @@ namespace Algorithms.Test.UnionFind
 {
     public class UnionFindTest
     {
-        [Fact]
+        [Fact(DisplayName = "快速查找")]
         public void QuickFindTest()
         {
 
         }
 
-        [Fact]
+        [Fact(DisplayName = "快速合并")]
         public void QuickUnionTest()
+        {
+
+        }
+
+        [Fact(DisplayName = "加权快速合并")]
+        public void WeightedQuickUnion()
+        {
+
+        }
+
+        [Fact(DisplayName = "路径压缩加权快速合并")]
+        public void WeightedQuickUnionWithPathCompression()
         {
 
         }
