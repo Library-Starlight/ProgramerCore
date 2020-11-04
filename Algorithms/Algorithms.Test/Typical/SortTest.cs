@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithms.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Algorithms.Test.Typical
             var values1 = StringHelper.GetValue<IComparable>(a, ',', s => int.Parse(s)).ToArray();
             var values2 = StringHelper.GetValue<IComparable>(excepted, ',', s => int.Parse(s)).ToArray();
 
-            InsertSort(values1);
+            InsertionSort(values1);
             for (int i = 0; i < values1.Length; i++)
             {
                 Assert.Equal(values2[i], values1[i]);
@@ -34,7 +35,7 @@ namespace Algorithms.Test.Typical
             var values1 = StringHelper.GetValue<IComparable>(a, ',', s => double.Parse(s)).ToArray();
             var values2 = StringHelper.GetValue<IComparable>(excepted, ',', s => double.Parse(s)).ToArray();
 
-            InsertSort(values1);
+            InsertionSort(values1);
             for (int i = 0; i < values1.Length; i++)
             {
                 Assert.Equal(values2[i], values1[i]);

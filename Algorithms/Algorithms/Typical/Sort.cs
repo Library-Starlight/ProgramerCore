@@ -15,8 +15,11 @@ namespace Algorithms.Typical
         /// <summary>
         /// 插入排序
         /// </summary>
+        /// <remarks>
+        /// Order-of-Growth: N²
+        /// </remarks>
         /// <param name="a"></param>
-        public static void InsertSort(IComparable[] a)
+        public static void InsertionSort(IComparable[] a)
         {
             for (int i = 1; i < a.Length; i++)
                 for (int j = i; j > 0 && Less(a[j], a[j - 1]); j--)

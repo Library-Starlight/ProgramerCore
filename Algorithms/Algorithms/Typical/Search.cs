@@ -11,6 +11,9 @@ namespace Algorithms.Typical
         /// <summary>
         /// 二分查找法
         /// </summary>
+        /// <remarks>
+        /// Order-of-Growth: 1+lg N
+        /// </remarks>
         /// <param name="key">查找的数字</param>
         /// <param name="a">有序数组</param>
         /// <returns></returns>
