@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Algorithms.Typical
 {
-    public class Evaluate
+    public class MathmaticExpression
     {
         /// <summary>
         /// 双栈算数表达式求值算法
@@ -12,16 +13,20 @@ namespace Algorithms.Typical
         /// <remarks>
         /// - by E.W.Dijkstra 
         /// </remarks>
-        public static void Start()
+        public static void Evaluate()
+        {
+            Console.WriteLine($"请输入算数表达式：");
+            var expression = Console.ReadLine();
+            Evaluate(expression);
+        }
+
+        public static void Evaluate(string expression)
         {
             // Test unit: (10 + ((1 + 2) * (3 * 4)))
 
             var operations = new Stack<char>();
             var variables = new Stack<double>();
             var sbValue = new StringBuilder();
-
-            Console.WriteLine($"请输入算数表达式：");
-            var expression = Console.ReadLine();
 
             for (int i = 0; i < expression.Length; i++)
             {

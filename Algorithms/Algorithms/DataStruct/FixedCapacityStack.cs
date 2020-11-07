@@ -57,6 +57,6 @@ namespace Algorithms.DataStruct
         /// </summary>
         /// <returns>元素项</returns>
         public T Pop()
-            => _array[_count--];
+            => _array[--_count];
     }
 }
