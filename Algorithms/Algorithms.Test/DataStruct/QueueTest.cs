@@ -1,9 +1,14 @@
-﻿using Algorithms.DataStruct.Stack;
+﻿using Algorithms.DataStruct.Queue;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Algorithms.Test.DataStruct
 {
-    public class StackTest
+    public class QueueTest
     {
         [Theory]
         [InlineData(new int[] { 1, 2, 3, 4, 5 })]
@@ -31,16 +36,12 @@ namespace Algorithms.Test.DataStruct
 
         private static void StartTest<T>(T[] values)
         {
-            var fixedCapacitystack = new FixedCapacityStack<T>(values.Length);
-            var resizingArraystack = new ResizingArrayStack<T>();
-            var chainStack = new ChainStack<T>();
+            var chainQueue = new ChainQueue<T>();
 
             // 多次使用测试
             for (int i = 0; i < 100; i++)
             {
-                AssertStack(values, fixedCapacitystack);
-                AssertStack(values, resizingArraystack);
-                AssertStack(values, chainStack);
+                AssertStack(values, chainQueue);
             }
         }
 
@@ -48,14 +49,13 @@ namespace Algorithms.Test.DataStruct
         {
             Assert.True(stack.IsEmpty());
             for (int i = 0; i < values.Length; i++)
-                stack.Push(values[i]);
+                stack.Enqueue(values[i]);
             for (int i = 0; i < values.Length; i++)
             {
-                var value = stack.Pop();
+                var value = stack.Dequeue();
 
-                var index = values.Length - 1 - i;
-                Assert.Equal(values[index], value);
-                Assert.Equal(index, stack.Count());
+                Assert.Equal(values[i], value);
+                Assert.Equal(values.Length - 1 - i, stack.Count());
             }
             Assert.True(stack.IsEmpty());
         }

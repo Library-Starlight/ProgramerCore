@@ -8,6 +8,5 @@ namespace Algorithms.Test.Typical
 {
     public class MathmaticExpressionTest
     {
-        public 
     }
 }

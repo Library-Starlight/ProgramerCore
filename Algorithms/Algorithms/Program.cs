@@ -17,7 +17,7 @@ namespace Algorithms
             // 算数表达式
             while (true)
             {
-                Evaluate.Start();
+                MathmaticExpression.Evaluate();
             }
         }
     }

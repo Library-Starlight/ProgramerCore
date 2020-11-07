@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.DataStruct
+namespace Algorithms.DataStruct.Stack
 {
     /// <summary>
     /// 定容栈
