@@ -9,6 +9,11 @@ namespace Algorithms.UnionFind
     /// <summary>
     /// 最基础的并查集数据结构
     /// </summary>
+    /// <remarks>
+    /// |       | 时间复杂度 | 空间复杂度 |
+    /// | union |     N      |     1      |
+    /// | conn  |     1      |     1      |
+    /// </remarks>
     public class QuickFind
     {
         private readonly int[] _ids;

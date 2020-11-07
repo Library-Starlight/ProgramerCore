@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Algorithms.Test.UnionFind
+namespace Algorithms.Test.Typical
 {
-    public class QuickUnionTest
+    public class SearchTest
     {
+
     }
 }
