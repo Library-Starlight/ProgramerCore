@@ -28,13 +28,16 @@ namespace Algorithms
                 1, 2, 3, 4, 5
             };
 
-            foreach (var item in bag as IEnumerable)
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(item);
-            }
-            foreach (var item in bag as IEnumerable<int>)
-            {
-                Console.WriteLine(item);
+                foreach (var item in bag as IEnumerable)
+                {
+                    Console.WriteLine(item);
+                }
+                foreach (var item in bag as IEnumerable<int>)
+                {
+                    Console.WriteLine(item);
+                }
             }
         }
     }
