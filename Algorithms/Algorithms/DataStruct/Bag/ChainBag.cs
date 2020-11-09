@@ -14,38 +14,62 @@ namespace Algorithms.DataStruct.Bag
 
         public void Add(T value)
         {
-
+            var oldNode = _first;
+            _first = new Node
+            {
+                _value = value,
+                _next = oldNode,
+            };
+            _count++;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new ChainBagEnum(_first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
-        private class ListEnumerator : IEnumerator<T>
+        private class ChainBagEnum : IEnumerator<T>
         {
-            public T Current => throw new NotImplementedException();
+            private Node _first;
+            private Node _current;
 
-            object IEnumerator.Current => throw new NotImplementedException();
+            public ChainBagEnum(Node first)
+            {
+                _first = first;
+                _current = new Node
+                {
+                    _next = _first,
+                };
+            }
+
+            public T Current
+            {
+                get
+                {
+                    return _current._value;
+                }
+            }
+
+            object IEnumerator.Current => Current;
 
             public void Dispose()
             {
-                throw new NotImplementedException();
             }
 
             public bool MoveNext()
             {
-                throw new NotImplementedException();
+                _current = _current._next;
+                return _current != null;
             }
 
             public void Reset()
             {
-                throw new NotImplementedException();
+                _current = _first;
             }
         }
 
