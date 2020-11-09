@@ -2,6 +2,7 @@
 using Algorithms.Practice;
 using Algorithms.Typical;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,11 @@ namespace Algorithms
                 1, 2, 3, 4, 5
             };
 
-            foreach (var item in bag)
+            foreach (var item in bag as IEnumerable)
+            {
+                Console.WriteLine(item);
+            }
+            foreach (var item in bag as IEnumerable<int>)
             {
                 Console.WriteLine(item);
             }

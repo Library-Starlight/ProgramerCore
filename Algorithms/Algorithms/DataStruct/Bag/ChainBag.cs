@@ -30,7 +30,7 @@ namespace Algorithms.DataStruct.Bag
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return GetEnumerator() as IEnumerator;
         }
 
         private class ChainBagEnum : IEnumerator<T>
