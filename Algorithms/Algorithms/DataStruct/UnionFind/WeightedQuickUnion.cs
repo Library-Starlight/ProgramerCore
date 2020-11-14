@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Algorithms.UnionFind
+namespace Algorithms.DataStruct.UnionFind
 {
     /// <summary>
     /// 带权快速合并算法

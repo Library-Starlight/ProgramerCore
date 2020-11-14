@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Algorithms.UnionFind
+namespace Algorithms.DataStruct.UnionFind
 {
     /// <summary>
     /// 最基础的并查集数据结构
