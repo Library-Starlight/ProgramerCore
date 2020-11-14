@@ -9,6 +9,10 @@ namespace Algorithms.Typical
     {
         /// <summary>
         /// 双栈算数表达式求值算法
+        ///     数学的算术表达式如何在计算机中进行运算是计算机科学早期讨论的一个课题。
+        ///     双栈算数表达是早期提出的一种简单的算法。
+        ///     
+        ///     后序表达式变体：Practice.InfixToPostfix
         /// </summary>
         /// <remarks>
         /// - by E.W.Dijkstra 
@@ -30,7 +34,6 @@ namespace Algorithms.Typical
 
             for (int i = 0; i < expression.Length; i++)
             {
-                var c = expression[i];
                 switch (expression[i])
                 {
                     case '+':
