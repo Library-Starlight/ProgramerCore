@@ -19,6 +19,8 @@ namespace Algorithms.Test.Typical
         [InlineData("5*(4+1)/5+3*2", 11.0D)]
         [InlineData("5", 5.0D)]
         [InlineData("0", 0.0D)]
+        [InlineData("100+50/4*5+7*3-3.5", 180.0D)]
+        [InlineData("(3+4*9/((3+2)*(9-5*2)+4))*(5+9*1.5)", -610.5D)]
         //[InlineData("-10/2", -5.0D)]
         //[InlineData("-10*2", -20.0D)]
         public void Evaluate(string expression, double exceptd)
