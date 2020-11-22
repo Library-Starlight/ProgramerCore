@@ -23,9 +23,18 @@ namespace Algorithms.Typical
             for (int i = 0; i < v.Length; i++)
                 for (int j = i + 1; j < v.Length; j++)
                     for (int k = j + 1; k < v.Length; k++)
-                        if (v[i] + v[j] + v[k] == 0)
+                        if (IsEqual(v[i], v[j], v[k]))
                             count++;
             return count;
+        }
+
+        public static bool IsEqual(int v1, int v2, int v3)
+        {
+            // 排除溢出情况
+            if (v1 > 0 && v2 > 0 && v1 + v2 == int.MinValue)
+                return v3 == int.MaxValue;
+
+            return v1 + v2 + v3 == 0;
         }
 
         /// <summary>

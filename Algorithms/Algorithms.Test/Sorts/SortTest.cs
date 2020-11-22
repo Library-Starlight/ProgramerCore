@@ -5,9 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Xunit;
-using static Algorithms.Typical.Sort;
+using static Algorithms.Sorts.InsertSort;
 
-namespace Algorithms.Test.Typical
+namespace Algorithms.Test.Sorts
 {
     public class SortTest
     {
@@ -21,7 +21,7 @@ namespace Algorithms.Test.Typical
             var values1 = StringHelper.GetValue<IComparable>(a, ',', s => int.Parse(s)).ToArray();
             var values2 = StringHelper.GetValue<IComparable>(excepted, ',', s => int.Parse(s)).ToArray();
 
-            InsertionSort(values1);
+            Sort(values1);
             for (int i = 0; i < values1.Length; i++)
             {
                 Assert.Equal(values2[i], values1[i]);
@@ -30,12 +30,12 @@ namespace Algorithms.Test.Typical
 
         [Theory(DisplayName = "插入排序（Double）")]
         [InlineData("2.9,1024.7,2.7", "2.7,2.9,1024.7")]
-        public void InsertSortTestDouble(string a, string excepted)
+        public void InsertSortDoubleTest(string a, string excepted)
         {
             var values1 = StringHelper.GetValue<IComparable>(a, ',', s => double.Parse(s)).ToArray();
             var values2 = StringHelper.GetValue<IComparable>(excepted, ',', s => double.Parse(s)).ToArray();
 
-            InsertionSort(values1);
+            Sort(values1);
             for (int i = 0; i < values1.Length; i++)
             {
                 Assert.Equal(values2[i], values1[i]);

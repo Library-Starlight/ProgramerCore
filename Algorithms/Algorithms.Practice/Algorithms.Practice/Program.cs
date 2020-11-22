@@ -1,5 +1,7 @@
 ﻿using Algorithms.Practice.Chapter3;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Algorithms.Practice
 {
@@ -7,7 +9,7 @@ namespace Algorithms.Practice
     {
         static void Main(string[] args)
         {
-            EvaluatePostfix.Start();
+            IEnumerable<int> v;
 
         }
     }
