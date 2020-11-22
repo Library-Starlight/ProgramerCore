@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32.SafeHandles;
+﻿using Algorithms.Typical;
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace Algorithms.Practice
 {
     public class Chapter2
     {
+        /// <summary>
+        /// 中序表达式转换为后序表达式求值
+        /// </summary>
         public static void P1_3_10()
         {
             var infix = "(3*(1-5))";
@@ -17,6 +21,10 @@ namespace Algorithms.Practice
             EvaluatePostfix(infix);
         }
 
+        /// <summary>
+        /// 后序表达式求值
+        /// </summary>
+        /// <param name="infix"></param>
         private static void EvaluatePostfix(string infix)
         {
             var postfix = InfixToPostfix.Convert(infix);

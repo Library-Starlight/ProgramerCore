@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Practice
+namespace Algorithms.Typical
 {
     public static class InfixToPostfix
     {
