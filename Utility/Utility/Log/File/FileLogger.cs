@@ -78,6 +78,15 @@ namespace Log
 
             _updateTime = DateTime.Now;
             FileName = Path.Combine(FilePath, $"log_{DateTime.Now:yyyyMMdd}.txt");
+
+            // 删除超过7天的日志
+            var dir = new DirectoryInfo(FilePath);
+            var files = dir.GetFiles();
+            foreach (var file in files)
+            {
+                if ((DateTime.Now.Date - file.CreationTime.Date).TotalDays > 7)
+                    file.Delete();
+            }
         }
 
         #endregion
