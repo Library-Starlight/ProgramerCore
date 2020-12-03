@@ -14,19 +14,37 @@ namespace Utility.TST
         private const string _targetFile = "CompressTargetFile.zip";
         private const string _targetFolder = "CompressTargetFolder";
 
-
+        /// <summary>
+        /// 压缩文件夹
+        /// </summary>
         [Fact]
         public void Compress_ToTargetFile()
         {
             using (new TestFolderProvider())
             {
-                // 压缩到指定文件
                 FileCompresser.CompressFolder(_testFolder, _targetFile);
-
                 Assert.True(File.Exists(_targetFile));
             }
         }
 
+        /// <summary>
+        /// 压缩指定文件夹到其内部。
+        /// </summary>
+        [Fact]
+        public void Compress_ToFileInTargetFolder()
+        {
+            // 失败，进程锁定了，待优化
+            using (new TestFolderProvider())
+            {
+                var filePath = Path.Combine(_testFolder, _targetFile);
+                FileCompresser.CompressFolder(_testFolder, filePath);
+                Assert.True(File.Exists(_targetFile));
+            }
+        }
+
+        /// <summary>
+        /// 解压
+        /// </summary>
         [Fact]
         public void Extract_ToFolder()
         {
@@ -35,9 +53,7 @@ namespace Utility.TST
                 // 创建zip文件
                 FileCompresser.CompressFolder(_testFolder, _targetFile);
 
-                // 解压到指定目录
                 FileCompresser.ExtractToFolder(_targetFile, _targetFolder);
-
                 Assert.True(Directory.Exists(_targetFolder));
             }
         }

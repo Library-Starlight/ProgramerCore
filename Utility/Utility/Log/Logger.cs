@@ -15,11 +15,6 @@ namespace Log
         private static string LogFilePath = AppDomain.CurrentDomain.BaseDirectory + $"/../log/{Assembly.GetAssembly(typeof(Logger)).GetName().Name}/";
         //private static string LogFilePath = Assembly.GetExecutingAssembly().Location + $"/../log/{Assembly.GetAssembly(typeof(Logger)).GetName().Name}/";
 
-        /// <summary>
-        /// 日志文件名称
-        /// </summary>
-        private static string LogFileName = "log.txt";
-
         #endregion
 
         #region 私有字段
@@ -27,7 +22,7 @@ namespace Log
         /// <summary>
         /// 文件日志API
         /// </summary>
-        private readonly FileLogger _logger = new FileLogger(LogFilePath + LogFileName);
+        private readonly FileLogger _logger = new FileLogger(LogFilePath);
 
         #endregion
 

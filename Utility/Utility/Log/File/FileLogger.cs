@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Log
@@ -11,12 +12,22 @@ namespace Log
     {
         private readonly FileManager _fileManager = new FileManager();
 
+        /// <summary>
+        /// The update time of new log file
+        /// </summary>
+        private DateTime _updateTime;
+
         #region Public Properties
 
         /// <summary>
         /// The path to write the log file to 
         /// </summary>
         public string FilePath { get; set; }
+
+        /// <summary>
+        /// The path and name of file to write log to
+        /// </summary>
+        public string FileName { get; set; }
 
         /// <summary>
         /// If true, logs the current time with each message
@@ -47,6 +58,9 @@ namespace Log
         /// <param name="level">The level of the log message</param>
         public void Log(string message, LogLevel level)
         {
+            // Generate new log file path
+            NewLogFile();
+
             // Get current time
             var currentTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
@@ -54,7 +68,16 @@ namespace Log
             var timeLogString = LogTime ? $"[{currentTime}] " : string.Empty;
 
             // Write the message to the log file
-            _fileManager.WriteAllTextToFileAsync($"{timeLogString} {level.ToString()} {message}{Environment.NewLine}", FilePath, append: true);
+            _fileManager.WriteAllTextToFileAsync($"{timeLogString} {level.ToString()} {message}{Environment.NewLine}", FileName, append: true);
+        }
+
+        public void NewLogFile()
+        {
+            if ((DateTime.Now.Date - _updateTime.Date).TotalDays == 0)
+                return;
+
+            _updateTime = DateTime.Now;
+            FileName = Path.Combine(FilePath, $"log_{DateTime.Now:yyyyMMdd}.txt");
         }
 
         #endregion

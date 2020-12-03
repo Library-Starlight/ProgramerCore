@@ -43,7 +43,7 @@ namespace Utility.Excel
                 {
                     object value = props[propIndex].GetValue(item);
                     ICell cell = dataRow.CreateCell(propIndex);
-                    cell.SetCellValue(value.ToString());
+                    cell.SetCellValue(value?.ToString());
                 }
             }
 
