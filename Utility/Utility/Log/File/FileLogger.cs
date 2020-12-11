@@ -62,7 +62,7 @@ namespace Log
             NewLogFile();
 
             // Get current time
-            var currentTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            var currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
             // Prepend the time to the log if desired
             var timeLogString = LogTime ? $"[{currentTime}] " : string.Empty;

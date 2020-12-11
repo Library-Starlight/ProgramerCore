@@ -1,0 +1,13 @@
+﻿
+
+
+            var logger = new Log4NetService("myLog");
+            while (true)
+            {
+                logger.Debug("Hello World!");
+                logger.Info("This is Information");
+                logger.Fatal("This is Fatal");
+
+                await Task.Delay(500);
+            }
+
