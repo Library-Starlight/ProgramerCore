@@ -24,6 +24,17 @@ namespace Utility.Extensions
     /// </summary>
     public static class DatatableAndJson
     {
+        /// <summary>
+        /// <see cref="DataTable"/>转换为实体列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static List<T> ToEntityList<T>(this DataTable dt)
+        {
+            var json = dt.ToJson();
+            return json.FromJson<List<T>>();
+        }
 
         /// <summary>
         /// DataTable 对象 转换为Json 字符串
