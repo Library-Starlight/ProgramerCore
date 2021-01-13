@@ -64,6 +64,14 @@ namespace Utility.Extensions
                 {
                     sbValues.Append(value.ToString());
                 }
+                else if (property.PropertyType == typeof(DateTime))
+                {
+                    sbValues.Append($"'{((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss.fff")}'");
+                }
+                else if (property.PropertyType == typeof(DateTime?))
+                {
+                    sbValues.Append($"'{((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss.fff")}'");
+                }
                 else
                 {
                     throw new ArgumentException($"不支持属性类型：{property.PropertyType}");

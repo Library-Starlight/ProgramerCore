@@ -47,7 +47,6 @@ void FakeVeriCode()
 
 	// 20位ascii码AA53A5B423F4147A223C
 	// 转换为16进制 => 0xAA, 0x53, 0xA5, 0xB4, 0x23, 0xF4, 0x14, 0x7A, 0x22, 0x3C
-	//uint8_t srArr[20] = { 0x41, 0x41, 0x35, 0x33, 0x41, 0x35, 0x42, 0x34, 0x32, 0x33, 0x46, 0x34, 0x31, 0x34, 0x37, 0x41, 0x32, 0x32, 0x33, 0x43 };
 	uint8_t srArr[20] = { 0xAA, 0x53, 0xA5, 0xB4, 0x23, 0xF4, 0x14, 0x7A, 0x22, 0x3C };
 
 	uint8_t vrArr[10] = {};
@@ -60,28 +59,8 @@ void FakeVeriCode()
 	for (int i = 0; i < 10; i++)
 	{
 		std::cout << (int)vr[i];
-		std::cout << '\n';
+		std::cout << "，";
 	}
-
-	//std::cout << (int)vr[0];
-	//std::cout << (int)vr[1];
-	//std::cout << (int)vr[2];
-	//std::cout << (int)vr[3];
-	//std::cout << (int)vr[4];
-
-	//vr[0] = 5;
-	//std::cout << (int)vr[0];
-	//std::cout << (int)vr[1];
-	//std::cout << (int)vr[2];
-	//std::cout << (int)vr[3];
-	//std::cout << (int)vr[4];
-
-	// tr
-	/*std::cout << (int)trArr[9];
-	std::cout << '\n';
-	
-	tr = trArr;
-	std::cout << (int)tr[5];*/
 }
 
 /// <summary>

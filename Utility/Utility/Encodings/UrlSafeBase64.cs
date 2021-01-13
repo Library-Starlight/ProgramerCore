@@ -11,7 +11,15 @@ namespace Utility.Encodings
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static string GetString(byte[] data) 
+        public static string GetString(byte[] data)
             => Convert.ToBase64String(data).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+
+        /// <summary>
+        /// 获取Base64字符串
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static string GetBase64String(byte[] data)
+            => Convert.ToBase64String(data);
     }
 }
