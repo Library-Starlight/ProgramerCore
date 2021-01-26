@@ -15,7 +15,7 @@ namespace Utility.Extensions
         /// <param name="index">起始位置</param>
         /// <param name="isLittleEndian">是否为小端，若系统与该值指定的模式一样，则直接转换，否则需要将数组反转后转换</param>
         /// <returns>转换结果</returns>
-        public static ushort ToUInt16(byte[] data, int index, bool isLittleEndian)
+        public static ushort ToUInt16(byte[] data, int index, bool isLittleEndian = false)
         {
             if (BitConverter.IsLittleEndian == isLittleEndian)
                 return BitConverter.ToUInt16(data, index);
@@ -32,7 +32,7 @@ namespace Utility.Extensions
         /// <param name="index">起始位置</param>
         /// <param name="isLittleEndian">是否为小端，若系统与该值指定的模式一样，则直接转换，否则需要将数组反转后转换</param>
         /// <returns>转换结果</returns>
-        public static uint ToUInt32(byte[] data, int index, bool isLittleEndian)
+        public static uint ToUInt32(byte[] data, int index, bool isLittleEndian = false)
         {
             if (BitConverter.IsLittleEndian == isLittleEndian)
                 return BitConverter.ToUInt32(data, index);
@@ -48,7 +48,7 @@ namespace Utility.Extensions
         /// <param name="value">数据值</param>
         /// <param name="isLittleEndian">是否为小端，若系统与该值指定的模式一样，则直接转换，否则需要将数组反转后转换</param>
         /// <returns>数据数组</returns>
-        public static byte[] GetBytes(ushort value, bool isLittleEndian)
+        public static byte[] GetBytes(ushort value, bool isLittleEndian = false)
         {
             var data = BitConverter.GetBytes(value);
             if (BitConverter.IsLittleEndian != isLittleEndian)
@@ -62,7 +62,7 @@ namespace Utility.Extensions
         /// <param name="value">数据值</param>
         /// <param name="isLittleEndian">是否为小端，若系统与该值指定的模式一样，则直接转换，否则需要将数组反转后转换</param>
         /// <returns>数据数组</returns>
-        public static byte[] GetBytes(uint value, bool isLittleEndian)
+        public static byte[] GetBytes(uint value, bool isLittleEndian = false)
         {
             var data = BitConverter.GetBytes(value);
             if (BitConverter.IsLittleEndian != isLittleEndian)

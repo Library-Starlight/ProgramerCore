@@ -84,5 +84,27 @@ namespace Utility.Extensions
 
             return sbSql.ToString();
         }
+
+        //public static T ReadFirstValue<T>(string connStr, string sql)
+        //    where T : class
+        //{
+        //    var connection = new SqlConnection(connStr);
+        //    connection.Open();
+        //    var command = new SqlCommand(sql);
+        //    command.Connection = connection;
+
+        //    var adapter = new SqlDataAdapter();
+        //    adapter.SelectCommand = command;
+
+        //    var dbSet = new DataSet();
+        //    adapter.Fill(dbSet);
+
+        //    var value = (T)dbSet.Tables[0].Rows[0][0];
+
+        //    connection.Close();
+        //    connection.Dispose();
+
+        //    return value;
+        //}
     }
 }
