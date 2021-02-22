@@ -20,6 +20,7 @@
             {
                 data[i / 2] = byte.Parse(value.Substring(i, 2), System.Globalization.NumberStyles.HexNumber);
             }
+
             return data;
         }
     }
